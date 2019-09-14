@@ -7,9 +7,13 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
+/**
+ * 创建一个ChannelGroup，用来登记客户端的加入和退出，以及群发消息
+ */
 public class MyChatServerHandler extends SimpleChannelInboundHandler<String>{
 
-    private static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+    // must be static, if not, broadcast does not work.
+    private static final ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {

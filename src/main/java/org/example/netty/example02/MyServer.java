@@ -11,7 +11,7 @@ import io.netty.handler.logging.LoggingHandler;
 /**
  * 简单Socket通讯
  *   1. 服务程序采用ServerBootstrap启动程序，客户程序采用Bootstrap启动程序。
- *   2. 采用同样的编程模式：Group->Initializer->Handler
+ *   2. 采用同样的编程模式：Bootstrap->Group->Initializer->Handler
  *   3. 服务程序启动后等待客户程序的连接，客户程序连接上服务程序后，在通道激活事件处理程序里向服务器发送数据。
  */
 public class MyServer {
